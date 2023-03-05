@@ -8,7 +8,7 @@ Role Variables
 
 | var | description |
 | - | - |
-| vector_version | Vector Version. Default: `0.27.0` |
+| vector_version | Vector version. Default: `0.27.0` |
 | log_path | Logs that will be transferred to the Vector. Default: `/var/log/*.log` | 
 | clickhouse_user | ClickHouse user for Vector. Default: `vector` |
 | clickhouse_password | ClickHouse password for Vector. Default: `vector` |
