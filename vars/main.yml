@@ -1,0 +1,26 @@
+---
+vector_config:
+  data_dir: /opt/vector/data
+  sources:
+    logs:
+      read_from: beginning
+      type: file
+      include:
+        - "{{ log_path }}"
+      ignore_older: 86400
+  sinks:
+    clickhouse:
+      type: clickhouse
+      auth:
+        user: "{{ clickhouse_user }}"
+        password: "{{ clickhouse_password }}"
+        strategy: basic
+      inputs:
+        - logs
+      endpoint: "{{ clickhouse_address }}"
+      database: logs
+      table: app_logs
+      skip_unknown_fields: true
+      compression: gzip
+      encoding:
+        timestamp_format: "unix"

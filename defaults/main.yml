@@ -1,0 +1,6 @@
+---
+vector_version: "0.27.0"
+log_path: "/var/log/*.log"
+clickhouse_user: "vector"
+clickhouse_password: "vector"
+clickhouse_address: "http://localhost:8123"
