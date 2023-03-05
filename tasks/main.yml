@@ -47,4 +47,4 @@
         group: vector
         mode: "0664"
       notify: Start Vector service
-become: true
+  become: true
