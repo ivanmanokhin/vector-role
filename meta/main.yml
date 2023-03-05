@@ -1,6 +1,6 @@
 galaxy_info:
   author: Ivan Manokhin
-  description: Role for installation Vector on EL
+  description: Role for installation Vector on RHEL
 
   license: MIT
 
