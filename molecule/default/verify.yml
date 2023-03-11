@@ -1,0 +1,30 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+  - name: Vector check version
+    ansible.builtin.command:
+      cmd: "/opt/vector/bin/vector --version"
+    changed_when: false
+    failed_when: false
+    register: vector_version
+  - name: Assert Vector version
+    ansible.builtin.assert:
+      that:
+        - "{{ vector_version.rc }} == 0"
+      success_msg: "{{ vector_version.stdout }}"
+      fail_msg: "Failed to get Vector version. Exit code: {{ vector_version.rc }}"
+
+  - name: Validate Vector config
+    ansible.builtin.command:
+      cmd: "/opt/vector/bin/vector validate --no-environment --config-yaml /opt/vector/config/vector.yml"
+    changed_when: false
+    failed_when: false
+    register: vector_config
+  - name: Assert Vector config
+    ansible.builtin.assert:
+      that:
+        - "{{ vector_config.rc }} == 0"
+      success_msg: "Vector configuration is valid"
+      fail_msg: "{{ vector_config.stdout }}"

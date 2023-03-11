@@ -24,3 +24,4 @@ vector_config:
       compression: gzip
       encoding:
         timestamp_format: "unix"
+      healthcheck: false
