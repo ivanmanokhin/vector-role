@@ -4,14 +4,13 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: ubuntu_latest
-    image: docker.io/pycontribs/ubuntu:latest
+  - name: centos_8
+    image: docker.io/pycontribs/centos:8
     pre_build_image: true
 provisioner:
   name: ansible
 scenario:
   test_sequence:
-    - destroy
     - create
     - converge
     - destroy
